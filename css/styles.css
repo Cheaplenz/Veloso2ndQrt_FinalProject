@@ -1,0 +1,384 @@
+/* ================= VARIABLES & RESET ================= */
+/* New Color Palette: Rich Blue & Vibrant Orange */
+:root {
+    --primary-blue: #0060A0; /* Deep, rich blue (Main accent color) */
+    --accent-orange: #FF8C00; /* Vibrant orange (Highlight/Hover color) */
+    --bg-main: #F5F8FA; /* Very light blue-grey background */
+    --card-bg: #FFFFFF; /* Pure white for article cards to stand out */
+    --text-dark: #2C3E50; /* Dark text color */
+    --nav-height: 72px;
+}
+
+/* Reset box model and default margins/padding */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Base Body Styles: New light background, Inter font (system fallback) */
+body {
+    font-family: 'Inter', system-ui, -apple-system, Arial, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+/* Main Content Container: Centers the content, slightly wider max-width */
+.container { 
+    max-width: 1000px; /* Increased width for better two-column display */
+    margin: 30px auto; 
+    background: transparent; /* Container itself is transparent to show body background */
+    padding: 0 20px;
+    flex-grow: 1; 
+}
+
+/* ================= HEADER & BANNER ================= */
+
+/* Header section: Uses the SDG's standard blue for continuity */
+header {
+    background: #1A73E8; /* Keeping the strong, original SDG blue for the banner */
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sdg-icon {
+    float: left;
+    margin-right: 20px;
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.header-titles {
+    overflow: hidden;
+    text-align: left;
+}
+
+header h1 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+}
+
+header h2 {
+    color: var(--accent-orange); /* Using the new accent color here */
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+
+/* ================= NAVIGATION BAR ================= */
+
+.navbar {
+    background: var(--primary-blue); /* New deep blue for the nav bar */
+    height: var(--nav-height);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    text-align: center; 
+}
+
+.navbar ul {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block; 
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05em;
+    padding: 20px 0;
+    display: inline-block; /* traditional layout, no flexbox */
+    line-height: calc(var(--nav-height) - 40px);
+    transform-origin: center bottom; /* origin for the skew transform */
+    transition: transform 0.25s ease, color 0.3s, border-bottom 0.3s;
+    -webkit-transition: -webkit-transform 0.25s ease, color 0.3s, border-bottom 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--accent-orange);
+    border-bottom: 3px solid var(--accent-orange);
+    transform: skewX(-10deg) translateY(-2px); /* skew on hover */
+    -webkit-transform: skewX(-10deg) translateY(-2px);
+    -ms-transform: skewX(-10deg) translateY(-2px);
+}
+
+
+/* ================= CONTENT LAYOUTS ================= */
+
+/* Wrapper for two-column article layouts (Home and About Us pages) */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive grid */
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* Individual Article Card Style */
+.article-card {
+    background: var(--card-bg); /* White background for prominence */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft, noticeable shadow */
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px; /* Margin for single-column pages */
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: var(--primary-blue);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 3px solid var(--accent-orange); /* Accent line for main title */
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: var(--primary-blue);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+ul {
+    padding-left: 25px;
+    margin: 10px 0;
+}
+
+/* Images */
+.article-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px auto; 
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Learn More Link (Button Style) */
+.section-footer {
+    text-align: right; 
+    padding-top: 15px;
+}
+
+.learn-more-link {
+    color: var(--primary-blue);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 25px; 
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+.learn-more-link:hover {
+    background-color: var(--primary-blue);
+    color: var(--card-bg);
+}
+
+
+/* ================= UNIQUE STYLE FOR ABOUT US PAGE (Project Lead) ================= */
+
+.proponent-section-wrapper {
+    /* Ensures the proponent section takes full width below the two-column grid */
+    grid-column: 1 / -1; 
+    margin-top: 30px;
+    background: var(--card-bg); 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 96, 160, 0.1); /* Subtle border matching primary color */
+}
+
+.proponent {
+    /* Use flexbox to align image and details horizontally */
+    display: flex;
+    align-items: flex-start; /* Aligns content to the top */
+    gap: 30px;
+}
+
+.proponent-photo {
+    width: 180px; /* Slightly larger image */
+    height: 180px;
+    border-radius: 50%; 
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents photo from shrinking */
+    border: 4px solid var(--accent-orange); /* Highlight border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.proponent-details {
+    flex-grow: 1;
+}
+
+.proponent-details h3 {
+    margin-top: 0;
+    color: var(--accent-orange);
+    font-size: 1.6em;
+}
+
+.proponent-details h4 {
+    color: var(--primary-blue);
+    margin-top: 15px;
+}
+
+.proponent-details p {
+    margin-bottom: 10px;
+}
+
+.proponent-details a {
+    color: var(--primary-blue);
+    font-weight: bold;
+    text-decoration: none;
+}
+.proponent-details a:hover {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
+/* ================= FOOTER STYLES ================= */
+footer {
+    background: var(--primary-blue); /* Dark blue background for the footer */
+    color: #ecf0f1;
+    padding: 30px 0;
+    margin-top: 50px; 
+    border-top: 5px solid var(--accent-orange); /* Accent border on top */
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1; 
+    min-width: 180px; 
+}
+
+.footer-section h4 {
+    color: var(--accent-orange);
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.9em;
+}
+
+.footer-section a:hover {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
+/* Styles for the bottom copyright row */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    margin-top: 25px;
+    font-size: 0.85em;
+}
+
+/* Social media icon links */
+.social-links a {
+    display: inline-block;
+    color: #ecf0f1;
+    font-size: 1.4em;
+    margin-right: 15px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--accent-orange);
+    transform: scale(1.1);
+}
+
+/* icons: added icons thru image sprites */
+.sprite {
+    background-image: url('../images/social-media-icons-myriammia-logos-removebg-preview.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Individual sprite coordinates (from SpriteCow) */
+.sprite.facebook {
+    background-position: -27px -19px;
+    width: 53px;
+    height: 52px;
+}
+
+.sprite.twitter {
+    background-position: -128px -19px;
+    width: 52px;
+    height: 52px;
+}
+
+.sprite.insta {
+    background-position: -228px -19px;
+    width: 53px;
+    height: 53px;
+}
+
+.sr-only {
+    /* accessibility: visually hide text but keep for screen readers */
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
